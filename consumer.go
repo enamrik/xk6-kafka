@@ -37,7 +37,7 @@ func (k *Kafka) Reader(
 		Dialer:           dialer,
 	})
 
-	if offset > 0 {
+	if offset > 0 || offset == -1 || offset == -2 {
 		if groupID == "" {
 			err := reader.SetOffset(offset)
 			if err != nil {
